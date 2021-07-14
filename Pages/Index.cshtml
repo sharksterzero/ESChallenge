@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@using ESChallenge.Models;
+@{
+    ViewData["Title"] = "ES Code Challenge";
+}
+
+<h1 class="display-4">ES Code Challenge</h1>
+<p>Enter a software version number:</p>
+<div class="col-md-6">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <input asp-for="VersionInput" class="form-control" />
+            <span asp-validation-for="VersionInput" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<div class="col-md-6">
+    @if (ViewData["Software"] != null)
+    {
+        <h3>Software List</h3>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Version</th>
+                @foreach (var item in ViewData["Software"] as IEnumerable<Software>)
+                {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Version</td>
+                </tr>
+            }
+            </table>
+        }
+</div>
