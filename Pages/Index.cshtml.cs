@@ -24,13 +24,10 @@ namespace ESChallenge.Pages
 
         [BindProperty]
         [RegularExpression(@"^\d{1,4}(\.\d{1,4})?(\.\d{1,4})?$",
-         ErrorMessage = "Software version must follow this format: [major version].[minor version].[patch]" +
+         ErrorMessage = "Software version must follow this format: [major version].[minor version].[patch] " +
             "Each number part may not exceed four digits.")]
-
         public string VersionInput { get; set; }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public IActionResult OnPost()
         {
             if (String.IsNullOrEmpty(VersionInput))
