@@ -27,13 +27,14 @@
             <tr>
                 <th>Name</th>
                 <th>Version</th>
-                @foreach (var item in ViewData["Software"] as IEnumerable<Software>)
-                {
+            </tr>
+            @foreach (var item in ViewData["Software"] as IEnumerable<Software>)
+            {
                 <tr>
                     <td>@item.Name</td>
                     <td>@item.Version</td>
                 </tr>
             }
-            </table>
-        }
+        </table>
+    }
 </div>
